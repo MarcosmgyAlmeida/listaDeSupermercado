@@ -25,7 +25,7 @@ public class listaDeSupermercado {
         for (int i = 0; i < lista.length; i++) {
             if (lista[i] == null) {
                 lista[i] = produto;
-                fraseRetorno = "Produto adicionado com sucesso";
+                fraseRetorno = produto + " adicionado com sucesso";
                 break;
             } else if (lista[i] != null) {
                 fraseRetorno = "Espaço insuficiente";
@@ -38,9 +38,9 @@ public class listaDeSupermercado {
     public String deletarProduto(@PathVariable("produto") String produto) {
         String fraseRetorno = "";
         for (int i = 0; i < lista.length; i++) {
-            if (lista[i].equals(produto)) {
+            if (lista[i] != null && lista[i].equals(produto)) {
                 lista[i] = null;
-                fraseRetorno = "Produto deletado com sucesso";
+                fraseRetorno = produto + " deletado com sucesso";
                 break;
             }
         }
@@ -51,9 +51,9 @@ public class listaDeSupermercado {
     public String alterarProduto(@PathVariable("produtoAntigo") String produtoAntigo, @PathVariable("produtoNovo") String produtoNovo) {
         String fraseRetorno = "";
         for (int i = 0; i < lista.length; i++) {
-            if (lista[i].equals(produtoAntigo)) {
+            if (lista[i] != null && lista[i].equals(produtoAntigo)) {
                 lista[i] = produtoNovo;
-                fraseRetorno = "Produto alterado com sucesso";
+                fraseRetorno = produtoAntigo + " alterado para " + produtoNovo;
                 break;
             }
         }
